@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kala Rindu</title>
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!--Feather Icons-->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Linden+Hill&family=Poppins:wght@100;300;400;700&display=swap" rel="stylesheet">
+
+    <!--File CSS-->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!--Navbar awal-->
+    <nav class="navbar">
+        <a href="#" class="navbar-logo"><img src="img/kalarindu.PNG" width="120"></a>
+
+        <div class="navbar-list">
+            <a href="#home">Beranda</a>
+            <a href="#about">Tentang Kami</a>
+            <a href="#menu">Menu</a>
+            <a href="#products">Produk</a>
+            <a href="#contact">Kontak</a>
+        </div>
+
+        <div class="navbar-extra">
+            <form class="d-flex" role="search" id="search-btn">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <a href="#" id="search-btn"><i data-feather="search"></i></a>
+                <a href="#" id="shopping-cart"><i data-feather="shopping-bag"></i></a>
+                <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+              </form>
+            <!--<a href="#" id="search-btn"><i data-feather="search"></i></a>
+            <a href="#" id="shopping-cart"><i data-feather="shopping-bag"></i></a>
+            <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>-->
+        </div>
+        <!--Search start-->
+        <div class="search-form">
+            <input type="search" id="search-box" placeholder="search here..." />
+            <label for="search-box"><i data-feather="search" style="color: black;"></i></label>
+        </div>
+        <!--Search end-->
+    </nav>
+    <!--Navbar akhir-->
+    
+<!--Hero Section Start-->
+<section class="hero" id="home">
+    <main class="content">
+        <h1>Nikmati Secangkir <span>Kopi</span></h1>
+        <p>Kopi akan memberimu inspirasi tentang apa yang tidak pernah kamu sangka sebelumnya.</p>
+        <a href="#" class="cta">Beli sekarang</a>
+    </main>
+</section>
+<!--Hero Section End-->
+
+<!--About Section Start-->
+<section id="about" class="about">
+    <h2><span>Tentang</span> Kami</h2>
+    <div class="row">
+        <div class="about-img">
+            <img src="img/about-img.jpg" alt="Tentang Kami" class="img-fluid">>
+        </div>
+        <div class="content">
+            <h3>kenapa memilih kopi kami</h3>
+            <p>Kami memilih biji kopi yang berkualitas dengan harga terjangkau.</p>
+            
+        </div>
+    </div>
+</section>
+<!--About Section End-->
+
+<!--Menu Section Start-->
+<section class="menu" id="menu">
+    <h2><span>Menu</span> Kami</h2>
+    <p>Berikut menu kami :</p>
+    <div class="row">
+        <div class="menu-card">
+            <img src="img/menu/1.jpg" alt="Espresso" class="menu-card-img">
+            <h3 class="menu-card-tittle">-Espresso-</h3>
+            <p class="menu-card-price">IDR 15K</p>
+        </div>
+        <div class="menu-card">
+            <img src="img/menu/2.jpg" alt="Cappucino" class="menu-card-img">
+            <h3 class="menu-card-tittle">-Cappucino-</h3>
+            <p class="menu-card-price">IDR 25K</p>
+        </div>
+        <div class="menu-card">
+            <img src="img/menu/3.jpg" alt="Latte" class="menu-card-img">
+            <h3 class="menu-card-tittle">-Latte-</h3>
+            <p class="menu-card-price">IDR 35K</p>
+        </div>
+    </div>
+</section>
+<!--Menu Section End-->
+
+<!--Product Section start-->
+<section class="products" id="products">
+<h2><span>Produk Unggulan</span> Kami</h2>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate iste quam commodi reiciendis dignissimos doloribus.</p>
+
+<div class="row">
+
+</div>
+</section>
+<!--Product Section end-->
+
+
+<!--Contact Section Start-->
+<section id="contact" class="contact">
+    <h2><span>Kontak</span> Kami</h2>
+    <p>Hubungi kami dibawah ini.</p>
+    <div class="row">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126937.01276255261!2d106.67485620870102!3d-6.1599915957545015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f7c9d110d719%3A0x300c5e82dd4b8a0!2sJakarta%20Barat%2C%20Kec.%20Kb.%20Jeruk%2C%20Kota%20Jakarta%20Barat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2C%20Indonesia!5e0!3m2!1sid!2sjp!4v1687762118090!5m2!1sid!2sjp" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map"></iframe>
+        <form action="">
+            <div class="input-group">
+                <i data-feather="user" class="featherlogo"></i>
+                <input type="text" placeholder="Nama">
+            </div>
+            <div class="input-group">
+                <i data-feather="mail" class="featherlogo"></i>
+                <input type="text" placeholder="Email">
+            </div>
+            <div class="input-group">
+                <i data-feather="phone" class="featherlogo"></i>
+                <input type="text" placeholder="No HP">
+            </div>
+            <button type="submit" class="btn">Kirim Pesan</button>
+        </form>
+    </div>
+</section>
+<!--Contact Section End-->
+
+<!--Footer Section Start-->
+<footer>
+    <div class="sosmed">
+        <a href="#"><i data-feather="instagram"></i></a>
+        <a href="#"><i data-feather="facebook"></i></a>
+        <a href="#"><i data-feather="twitter"></i></a>
+    </div>
+    <div class="link">
+        <a href="#home">Beranda</a>
+        <a href="#about">Tentang Kami</a>
+        <a href="#menu">Menu</a>
+        <a href="#contact">Kontak</a>
+    </div>
+    <div class="credit">
+        <p>Created By <a href="https://www.facebook.com/buhorii26">Buhori</a> | &copy; June 2023.</p>
+    </div>
+</footer>
+<!--Footer Section End-->
+
+
+<!--JS Bootstrap-->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+    <!--Javascript Feather ICONS-->
+    <script>
+        feather.replace()
+      </script>
+
+      <!--My Javascript-->
+      <script src="js/script.js"></script>
+</body>
+</html>
