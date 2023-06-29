@@ -394,7 +394,7 @@ footer .credit a{
 
 /*HP*/
 @media (max-width: 450px) {
-  .navbar .navbar-extra #search-btn{
-    font-size: 35%;
+  html{
+    font-size: 55%;
   }
 }
