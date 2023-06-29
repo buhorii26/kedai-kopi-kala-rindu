@@ -393,8 +393,8 @@ footer .credit a{
 }
 
 /*HP*/
-@media (max-width: 430px) {
+@media (max-width: 450px) {
   html{
-    font-size: 25%;
+    font-size: 55%;
   }
 }
