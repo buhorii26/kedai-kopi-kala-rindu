@@ -8,7 +8,7 @@ html {
 * {
   margin: 0;
   padding: 0;
-  box-slizing: border-box;
+  box-sizing: border-box;
   outline: none;
   border: none;
   text-decoration: none;
@@ -240,7 +240,40 @@ transform: scaleY(1);
   font-size: 1.2rem;
   margin-bottom: 2rem;
 }
-
+/*Product*/
+.products .row{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 1.5rem;
+  margin-top: 4rem;
+}
+.products .product-card {
+text-align: center;
+border: 1px solid var(--primary);
+}
+.products .product-icons{
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem; 
+}
+.products .product-icons a{
+width: 4rem;
+height: 4rem;
+color: black;
+margin: 0.3rem;
+border: 1px solid black;
+border-radius: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.products .product-icons a:hover {
+background-color:var(--primary);
+border: 1px solid black;
+}
+.products .product-img img {
+height: 25rem;
+}
 /*Contact Section*/
 .contact .row{
   display: flex;
