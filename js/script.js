@@ -10,7 +10,7 @@ document.querySelector('#hamburger-menu').onclick = ()=> {
 const searchForm = document.querySelector('.search-form');
 const searchBox = document.querySelector('#search-box');
 //ketika search di klik
-document.querySelector('#search-btn').onclick = (e)=> {
+document.querySelector('#search-button').onclick = (e)=> {
     searchForm.classList.toggle('active');
     searchBox.focus();
     e.preventDefault();
@@ -20,7 +20,7 @@ document.querySelector('#search-btn').onclick = (e)=> {
 const shoppingCart = document.querySelector('.shopping-cart');
 const cardItem = document.querySelector('.cart-item');
 //ketika icon shopping cart di klik
-document.querySelector('#shopping-cart-btn').onclick = (e)=> {
+document.querySelector('#shopping-cart-button').onclick = (e)=> {
     shoppingCart.classList.toggle('active');
     cardItem.focus();
     e.preventDefault();
@@ -28,8 +28,8 @@ document.querySelector('#shopping-cart-btn').onclick = (e)=> {
 
 //klik diluar elemen
 const hamburger = document.querySelector('#hamburger-menu');
-const searchbtn = document.querySelector('#search-btn');
-const sc = document.querySelector('#shopping-card-btn');
+const searchbtn = document.querySelector('#search-button');
+const sc = document.querySelector('#shopping-card-button');
 
 document.addEventListener('click',function(e){
 if(!hamburger.contains(e.target) && !navbarList.contains(e.target)){
