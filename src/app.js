@@ -67,32 +67,87 @@ document.addEventListener("alpine:init", () => {
       const cartItem = this.items.find((item) => item.id === id);
 
       // jika item  lebih dari 1
-      if(cartItem.qty > 1) {
+      if (cartItem.qty > 1) {
         //telusuri satu satu
         this.items = this.items.map((item) => {
           //jika bukan barang yang di klik
-          if(item.id !== id) {
+          if (item.id !== id) {
             return item;
-          }else {
+          } else {
             item.qty--;
             item.total = item.price * item.qty;
             this.qty--;
             this.total -= item.price;
-            return item;  
+            return item;
           }
-        })
-      }else if(cartItem.qty === 1) {
+        });
+      } else if (cartItem.qty === 1) {
         //jika barangnya tinggal 1
         this.items = this.items.filter((item) => item.id !== id);
         this.qty--;
         this.total -= cartItem.price;
       }
-    }
+    },
   });
 });
 
-//konversi ke rupiah
+//form validation
+const checkoutButton = document.querySelector(".checkout-button");
+checkoutButton.disabled = true;
 
+const form = document.querySelector("#checkoutForm");
+form.addEventListener("keyup", function () {
+  for (let i = 0; i < form.elements.length; i++) {
+    if (form.elements[i].value.length !== 0) {
+      checkoutButton.classList.add("disabled");
+      checkoutButton.classList.remove("disabled");
+    } else {
+      return false;
+    }
+  }
+  checkoutButton.disabled = false;
+  checkoutButton.classList.remove("disabled");
+});
+
+//kirim data ketika tombol checkout di klik
+checkoutButton.addEventListener("click", async function (e) {
+  e.preventDefault();
+  const formData = new FormData(form);
+  const data = new URLSearchParams(formData);
+  const objectData = Object.fromEntries(data);
+  // const pesan = formatPesan(objectData);
+  // window.open("http://wa.me/6285721720565?text=" + encodeURIComponent(pesan));
+
+  //minta transaksi token menggunakan ajax/fetch
+  try {
+    const response = await fetch("php/placeOrder.php", {
+      method: "POST",
+      body: data,
+    });
+    const token = await response.text();
+    console.log(token);
+    //window.snap.pay(token);
+  } catch (error) {
+    console.log(error.message);
+  }
+});
+
+//format pesan wa
+// const formatPesan = (object) => {
+//   return `Data Customer
+//   Nama: ${object.nama}
+//   Email: ${object.email}
+//   HP: ${object.hp}
+//   Data pesanan
+//   ${JSON.parse(object.items).map(
+//     (item) => `${item.name}
+//   (${item.qty} x ${rupiah(item.total)}) \n`
+//   )}
+//   Total bayar: ${rupiah(object.total)}
+//   Terima kasih.`;
+// };
+
+//konversi ke rupiah
 const rupiah = (number) => {
   return new Intl.NumberFormat("id-ID", {
     style: "currency",

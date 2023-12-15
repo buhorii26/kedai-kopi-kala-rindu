@@ -25,8 +25,13 @@
       defer
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
-    <!-- App JS -->
-    <script src="src/app.js"></script>
+
+    <!-- Connect to midtrans -->
+    <script
+      type="text/javascript"
+      src="https://app.sandbox.midtrans.com/snap/snap.js"
+      data-client-key="SB-Mid-client-VzvYauriaD2TjvX0"
+    ></script>
   </head>
   <body>
     <!--Navbar awal-->
@@ -47,7 +52,11 @@
         <a href="#" id="search-button"><i data-feather="search"></i></a>
         <a href="#" id="shopping-cart-button" @click.prevent>
           <i data-feather="shopping-cart"></i>
-          <span class="qty-notif" x-text="$store.cart.qty" x-show="$store.cart.qty"></span>
+          <span
+            class="qty-notif"
+            x-text="$store.cart.qty"
+            x-show="$store.cart.qty"
+          ></span>
         </a>
         <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
       </div>
@@ -64,43 +73,67 @@
       <!--Shopping Cart start-->
       <div class="shopping-cart">
         <template x-for="(item, index) in $store.cart.items" x-keys="index">
-        <div class="cart-item">
-          <img :src="`img/product/${item.image}`" :alt="item.name" />
-          <div class="item-detail">
-            <h3 x-text="item.name"></h3>
-            <div class="item-price">
-              <span x-text="rupiah(item.price)"></span> &times;
-              <button id="delete" @click="$store.cart.delete(item.id)">&minus;</button>
-              <span x-text="item.qty"></span>
-              <button id="add" @click="$store.cart.add(item)">&plus;</button>&equals;
-              <span x-text="rupiah(item.total)"></span>
+          <div class="cart-item">
+            <img :src="`img/product/${item.image}`" :alt="item.name" />
+            <div class="item-detail">
+              <h3 x-text="item.name"></h3>
+              <div class="item-price">
+                <span x-text="rupiah(item.price)"></span> &times;
+                <button id="delete" @click="$store.cart.delete(item.id)">
+                  &minus;
+                </button>
+                <span x-text="item.qty"></span>
+                <button id="add" @click="$store.cart.add(item)">&plus;</button
+                >&equals;
+                <span x-text="rupiah(item.total)"></span>
+              </div>
             </div>
           </div>
+        </template>
+        <h4 x-show="!$store.cart.items.length" style="margin-top: 1rem">
+          cart masih kosong.
+        </h4>
+        <h4
+          x-show="$store.cart.items.length"
+          style="border-bottom: 1px dashed; margin-bottom: 10px"
+        >
+          Total : <span x-text="rupiah($store.cart.total)"></span>
+        </h4>
+
+        <div class="form-container" x-show="$store.cart.items.length">
+          <form action="" id="checkoutForm">
+            <input
+              type="hidden"
+              name="items"
+              x-model="JSON.stringify($store.cart.items)"
+            />
+            <input type="hidden" name="total" x-model="$store.cart.total" />
+            <h5>Customer Detail</h5>
+
+            <label for="nama">
+              <span>Nama</span>
+              <input type="text" name="nama" id="nama" />
+            </label>
+            <label for="email">
+              <span>Email</span>
+              <input type="email" name="email" id="email" />
+            </label>
+            <label for="hp">
+              <span>No HP</span>
+              <input type="number" name="hp" id="hp" autocomplete="off" />
+            </label>
+            <button
+              class="checkout-button disabled"
+              type="submit"
+              id="checkout-button"
+              value="checkout"
+            >
+              Checkout
+            </button>
+          </form>
         </div>
-      </template>
-      <h4 x-show="!$store.cart.items.length" style="margin-top: 1rem;">cart masih kosong.</h4>
-      <h4 x-show="$store.cart.items.length" style="border-bottom: 1px dashed; margin-bottom:10px;">Total : <span x-text="rupiah($store.cart.total)"></span></h4>
-      <div class="form-container" x-show="$store.cart.items.length">
-        <form action="" id="checkouForm">
-          <h5>Customer Detail</h5>
-          <label for="nama">
-            <span>Nama</span>
-            <input type="text" name="nama" id="nama">
-          </label>
-          <label for="email">
-            <span>Email</span>
-            <input type="email" name="email" id="email">
-          </label>
-          <label for="hp">
-            <span>No HP</span>
-            <input type="number" name="hp" id="hp" autocomplete="off">
-          </label>
-          <button class="checkout-button" type="submit" id="checkout-button">Checkout</button>
-        </form>
-      </div>
       </div>
       <!--Shopping Cart end-->
-
     </nav>
     <!--Navbar akhir-->
 
@@ -260,7 +293,6 @@
                 >
                   <use href="img/feather-sprite/feather-sprite.svg#star" />
                 </svg>
-    
               </div>
               <div class="product-price">
                 <div>
@@ -358,9 +390,6 @@
     </div>
     <!--Modal box item detail end-->
 
-    <!--JS Bootstrap-->
-    <!--<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>-->
     <!--Javascript Feather ICONS-->
     <script>
       feather.replace();
@@ -368,5 +397,8 @@
 
     <!--My Javascript-->
     <script src="js/script.js"></script>
+
+    <!-- App JS -->
+    <script src="src/app.js"></script>
   </body>
 </html>

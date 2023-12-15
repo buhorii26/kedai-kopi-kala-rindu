@@ -195,6 +195,11 @@ body {
   font-size: 1rem;
   width: 70%;
 }
+.form-container .checkout-button.disabled {
+background-color: #999;
+cursor: not-allowed;
+
+}
 /*Hero Section*/
 .hero {
   min-height: 125vh;
