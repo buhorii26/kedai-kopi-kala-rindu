@@ -125,27 +125,45 @@ checkoutButton.addEventListener("click", async function (e) {
       body: data,
     });
     const token = await response.text();
-    console.log(token);
+    //console.log(token);
     //window.snap.pay(token);
+    window.snap.pay(token, {
+      onSuccess: function(result){
+        /* You may add your own implementation here */
+        alert("Pembayaran Berhasil!"); console.log(result);
+      },
+      onPending: function(result){
+        /* You may add your own implementation here */
+        alert("wating your payment!"); console.log(result);
+      },
+      onError: function(result){
+        /* You may add your own implementation here */
+        alert("Pembayaran Gagal!"); console.log(result);
+      },
+      onClose: function(){
+        /* You may add your own implementation here */
+        alert('you closed the popup without finishing the payment');
+      }
+    })
   } catch (error) {
     console.log(error.message);
   }
 });
 
 //format pesan wa
-// const formatPesan = (object) => {
-//   return `Data Customer
-//   Nama: ${object.nama}
-//   Email: ${object.email}
-//   HP: ${object.hp}
-//   Data pesanan
-//   ${JSON.parse(object.items).map(
-//     (item) => `${item.name}
-//   (${item.qty} x ${rupiah(item.total)}) \n`
-//   )}
-//   Total bayar: ${rupiah(object.total)}
-//   Terima kasih.`;
-// };
+const formatPesan = (object) => {
+  return `Data Customer
+  Nama: ${object.nama}
+  Email: ${object.email}
+  HP: ${object.hp}
+  Data pesanan
+  ${JSON.parse(object.items).map(
+    (item) => `${item.name}
+  (${item.qty} x ${rupiah(item.total)}) \n`
+  )}
+  Total bayar: ${rupiah(object.total)}
+  Terima kasih.`;
+};
 
 //konversi ke rupiah
 const rupiah = (number) => {
